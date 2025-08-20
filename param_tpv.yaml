@@ -1,0 +1,15 @@
+FAST_MODE: false
+simulation: { lambda_min_um: 0.5, lambda_max_um: 5.0, points: 3000, emitter_temperature_K: 1400, incidence: normal }
+emitter_stack:
+  - { material: "Air", thickness_um: 1000 }
+  - { material: "SiC", thickness_um: 5 }
+  - { material: "W", thickness_um: 0.2 }
+  - { material: "BackReflector", thickness_um: 1000 }
+filter_stack:
+  - { material: "Air", thickness_um: 1000 }
+  - { material: "SiO2", thickness_um: 0.25 }
+  - { material: "TiO2", thickness_um: 0.18 }
+  - { material: "SiO2", thickness_um: 0.25 }
+  - { material: "Air", thickness_um: 1000 }
+pv_cell: { bandgap_eV: 0.72, external_quantum_efficiency: 0.9, cell_temperature_K: 300, voltage_fraction_Voc: 0.8 }
+outputs: { spectra: true, tpv_estimates: true, save_npz: true }

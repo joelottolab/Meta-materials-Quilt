@@ -1,0 +1,25 @@
+# High-iteration param sweep for radiative-cooling roof stack
+FAST_MODE: false
+
+simulation:
+  lambda_min_um: 0.3
+  lambda_max_um: 20.0
+  points: 2000
+  resolution_cells_per_lambda: 100
+  timesteps: 300000
+  pml_thickness_cells: 20
+  incidence: normal
+
+layers:
+  - { material: "Air", thickness_um: 1000 }
+  - { material: "PDMS", thickness_um: 100 }
+  - { material: "SiO2_np", thickness_um: 100 }
+  - { material: "TiO2_np", thickness_um: 100 }
+  - { material: "Adhesive", thickness_um: 50 }
+  - { material: "Roof", thickness_um: 1000 }
+
+outputs:
+  reflectance: true
+  transmittance: false
+  emissivity_window_8_13um: true
+  save_npz: true

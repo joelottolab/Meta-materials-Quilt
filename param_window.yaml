@@ -1,0 +1,25 @@
+FAST_MODE: false
+simulation: { lambda_min_um: 0.35, lambda_max_um: 2.5, points: 2500, incidence: normal }
+stack:
+  - { material: "Air", thickness_um: 1000 }
+  - { material: "Glass", thickness_um: 1000 }
+  - { material: "ITO", thickness_um: 0.2 }
+  - { material: "WO3", thickness_um: 0.4 }
+  - { material: "Electrolyte", thickness_um: 5.0 }
+  - { material: "NiO", thickness_um: 0.3 }
+  - { material: "ITO", thickness_um: 0.2 }
+  - { material: "Glass", thickness_um: 1000 }
+  - { material: "Air", thickness_um: 1000 }
+states:
+  bleached: { WO3: { n: 2.0, k: 0.02 }, NiO: { n: 2.2, k: 0.02 } }
+  colored:  { WO3: { n: 2.2, k: 0.20 }, NiO: { n: 2.4, k: 0.15 } }
+materials_base:
+  Air: { n: 1.0, k: 0.0 }
+  Glass:{ n: 1.5, k: 0.0 }
+  ITO:  { n: 1.9, k: 0.02 }
+  Electrolyte:{ n: 1.4, k: 0.0 }
+kinetics:
+  tau_s_color: 2.0
+  tau_s_bleach: 3.0
+  voltage_profile: [ {t:0, V: 0}, {t:1, V: 2.5}, {t:6, V: 2.5}, {t:7, V: 0}, {t:15, V: 0}, {t:16, V: -1.5}, {t:25, V: -1.5}, {t:26, V: 0} ]
+outputs: { spectra_states: true, kinetics_trace: true, luminous_metrics: true, save_npz: true }

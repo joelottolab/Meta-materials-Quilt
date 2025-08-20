@@ -1,0 +1,30 @@
+# High-iteration param sweep for RF metasurface unit cell
+FAST_MODE: false
+
+simulation:
+  freq_min_GHz: 2.0
+  freq_max_GHz: 7.0
+  resolution_cells_per_lambda: 60
+  timesteps: 200000
+  pml_thickness_cells: 16
+  bloch_kx: 0.0
+  bloch_ky: 0.0
+
+unit_cell:
+  pitch_mm: 20.0
+  substrate: RO4350B
+  substrate_thickness_mm: 1.6
+  conductor_thickness_um: 35.0
+  topology: huygens_patch
+  copper_fill_factor: 0.45
+
+tuning:
+  varactor_model: "Cmin=0.5pF,Cmax=5pF,Rseries=2Ω"
+  bias_voltage_V: [1.0, 2.5, 5.0, 8.0]
+  scan_angles_deg: [0, 15, 30, 45]
+
+outputs:
+  sparams: true
+  phase_fronts: true
+  field_slices: ["Ex","Hy"]
+  save_npz: true
